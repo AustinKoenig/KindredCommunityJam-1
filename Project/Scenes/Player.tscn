@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/CameraRoot.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/PlagueDoctaModel.tscn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="CameraRoot" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="H" type="Spatial" parent="CameraRoot"]
+
+[node name="V" type="Spatial" parent="CameraRoot/H"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+
+[node name="Camera" type="ClippedCamera" parent="CameraRoot/H/V"]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -5 )
+
+[node name="MouseControlDelay" type="Timer" parent="CameraRoot"]
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DashCooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="PlagueDoctaModel" parent="." instance=ExtResource( 3 )]
+[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
+[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_DashCooldownTimer_timeout"]

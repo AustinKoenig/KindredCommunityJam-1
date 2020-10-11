@@ -1,0 +1,86 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Assets/Player/PlagueDoctor.fbx" type="PackedScene" id=1]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Armature|Dash"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Armature|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Armature|Poking"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Armature|Throwing"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Armature|ThrowingPrepare.001"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Armature|ThrowingPrepare"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Armature|Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachine" id=23]
+states/Armature|Dash/node = SubResource( 1 )
+states/Armature|Dash/position = Vector2( 837, 205 )
+states/Armature|Idle/node = SubResource( 2 )
+states/Armature|Idle/position = Vector2( 211, 128 )
+states/Armature|Poking/node = SubResource( 3 )
+states/Armature|Poking/position = Vector2( 100, 288 )
+states/Armature|Throwing/node = SubResource( 4 )
+states/Armature|Throwing/position = Vector2( 690, 387 )
+states/Armature|ThrowingPrepare/node = SubResource( 6 )
+states/Armature|ThrowingPrepare/position = Vector2( 789, 323 )
+states/Armature|ThrowingPrepare.001/node = SubResource( 5 )
+states/Armature|ThrowingPrepare.001/position = Vector2( 327, 453 )
+states/Armature|Walking/node = SubResource( 7 )
+states/Armature|Walking/position = Vector2( 567, 125 )
+transitions = [ "Armature|Idle", "Armature|Walking", SubResource( 8 ), "Armature|Walking", "Armature|Idle", SubResource( 9 ), "Armature|Idle", "Armature|Poking", SubResource( 10 ), "Armature|Poking", "Armature|Idle", SubResource( 11 ), "Armature|Idle", "Armature|ThrowingPrepare.001", SubResource( 12 ), "Armature|ThrowingPrepare.001", "Armature|Idle", SubResource( 13 ), "Armature|Walking", "Armature|ThrowingPrepare.001", SubResource( 14 ), "Armature|ThrowingPrepare.001", "Armature|Walking", SubResource( 15 ), "Armature|Walking", "Armature|Dash", SubResource( 16 ), "Armature|Dash", "Armature|Walking", SubResource( 17 ), "Armature|Walking", "Armature|ThrowingPrepare", SubResource( 18 ), "Armature|ThrowingPrepare", "Armature|Throwing", SubResource( 19 ), "Armature|Throwing", "Armature|Walking", SubResource( 26 ), "Armature|Idle", "Armature|ThrowingPrepare", SubResource( 21 ), "Armature|Throwing", "Armature|Idle", SubResource( 22 ) ]
+start_node = "Armature|Idle"
+graph_offset = Vector2( -81, 83 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+
+[node name="PlagueDoctaModel" instance=ExtResource( 1 )]
+
+[node name="Armature" parent="." index="0"]
+transform = Transform( 100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 23 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 24 )

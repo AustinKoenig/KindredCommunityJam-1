@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Explosive_potion.obj-3f677badffb7c881e9d16725b4263f0e.mesh"
+
+[deps]
+
+files=[ "res://.import/Explosive_potion.obj-3f677badffb7c881e9d16725b4263f0e.mesh" ]
+
+source_file="res://Assets/Potions/Explosive_potion.obj"
+dest_files=[ "res://.import/Explosive_potion.obj-3f677badffb7c881e9d16725b4263f0e.mesh", "res://.import/Explosive_potion.obj-3f677badffb7c881e9d16725b4263f0e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
