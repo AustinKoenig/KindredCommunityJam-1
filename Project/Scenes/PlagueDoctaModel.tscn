@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/Player/PlagueDoctor.fbx" type="PackedScene" id=1]
 
@@ -2874,9 +2874,11 @@ animation = "Walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
 [sub_resource type="AnimationNodeStateMachine" id=1]
 states/Dash/node = SubResource( 16 )
-states/Dash/position = Vector2( 795, 231 )
+states/Dash/position = Vector2( 826, 225 )
 states/Idle/node = SubResource( 17 )
 states/Idle/position = Vector2( 203, 92 )
 states/Jump/node = SubResource( 18 )
@@ -2889,7 +2891,7 @@ states/ThrowPrepare/node = SubResource( 21 )
 states/ThrowPrepare/position = Vector2( 637, 348 )
 states/Walk/node = SubResource( 22 )
 states/Walk/position = Vector2( 563, 88 )
-transitions = [ "Idle", "Jump", SubResource( 23 ), "Jump", "Idle", SubResource( 24 ), "Idle", "Walk", SubResource( 25 ), "Walk", "Idle", SubResource( 26 ), "Idle", "Poke", SubResource( 27 ), "Poke", "Idle", SubResource( 28 ), "Jump", "Walk", SubResource( 29 ), "Walk", "Jump", SubResource( 30 ), "Walk", "Dash", SubResource( 31 ), "Dash", "Walk", SubResource( 32 ), "Idle", "ThrowPrepare", SubResource( 33 ), "ThrowPrepare", "Throw", SubResource( 34 ), "Throw", "Idle", SubResource( 35 ), "Walk", "ThrowPrepare", SubResource( 36 ) ]
+transitions = [ "Idle", "Jump", SubResource( 23 ), "Jump", "Idle", SubResource( 24 ), "Idle", "Walk", SubResource( 25 ), "Walk", "Idle", SubResource( 26 ), "Idle", "Poke", SubResource( 27 ), "Poke", "Idle", SubResource( 28 ), "Jump", "Walk", SubResource( 29 ), "Walk", "Jump", SubResource( 30 ), "Walk", "Dash", SubResource( 31 ), "Dash", "Walk", SubResource( 32 ), "Idle", "ThrowPrepare", SubResource( 33 ), "ThrowPrepare", "Throw", SubResource( 34 ), "Throw", "Idle", SubResource( 35 ), "Walk", "ThrowPrepare", SubResource( 36 ), "Dash", "Idle", SubResource( 37 ) ]
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]

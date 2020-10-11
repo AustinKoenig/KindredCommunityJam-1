@@ -27,14 +27,29 @@ transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -5 )
 [node name="MouseControlDelay" type="Timer" parent="CameraRoot"]
 one_shot = true
 
-[node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
+[node name="PlagueDoctaModel" parent="." instance=ExtResource( 3 )]
 
 [node name="DashCooldownTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
-[node name="PlagueDoctaModel" parent="." instance=ExtResource( 3 )]
-[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
+[node name="DashAnimationTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="JumpAnimationTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="ThrowAnimationTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="PokeAnimationTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
 [connection signal="timeout" from="DashCooldownTimer" to="." method="_on_DashCooldownTimer_timeout"]
+[connection signal="timeout" from="DashAnimationTimer" to="." method="_on_DashAnimationTimer_timeout"]
+[connection signal="timeout" from="JumpAnimationTimer" to="." method="_on_JumpAnimationTimer_timeout"]
+[connection signal="timeout" from="ThrowAnimationTimer" to="." method="_on_ThrowAnimationTimer_timeout"]
+[connection signal="timeout" from="PokeAnimationTimer" to="." method="_on_PokeAnimationTimer_timeout"]
