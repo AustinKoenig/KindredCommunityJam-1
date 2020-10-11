@@ -31,9 +31,9 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if direction != Vector3.ZERO:
-		animation_state.travel("Armature|Walking")
+		animation_state.travel("Walk")
 	else:
-		animation_state.travel("Armature|Idle")
+		animation_state.travel("Idle")
 
 func _physics_process(delta: float) -> void:
 	# Update direction
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if Input.is_action_just_pressed("jump"):
 		jump = JUMP_POWER
-		animation_state.travel("Armature|Jump")
+		animation_state.travel("Jump")
 	else:
 		jump = 0
 	
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and dash_enabled:
 		dash = true
 		dash_enabled = false
-		animation_state.travel("Armature|Dash")
+		animation_state.travel("Dash")
 		$DashTimer.start()
 		$DashCooldownTimer.start()
 	
